@@ -1,18 +1,10 @@
 import React , {useState} from 'react'
-import { Card,CardImg,CardImgOverlay, CardText,CardBody,CardTitle } from 'reactstrap';
-
+import { Card,CardImg,CardImgOverlay, CardTitle } from 'reactstrap';
+import DishdetailComponent from './DishdetailComponent';
 const MenuComponent =({data, dishes})=>{
-   const [dish,setDish]= useState(data)
+//    const [dish,setDish]= useState(data)
    const [selectedDish, setSelectedDish]= useState(null)
 
-   const renderSelectedDish=(selectedDish)=>{
-        if (selectedDish !=null){
-
-           
-        }else{
-            <div></div>
-        }
-   }
 
 //    const menu = dish.map((item)=>
     const menu = dishes.map((item)=>
@@ -39,15 +31,10 @@ const MenuComponent =({data, dishes})=>{
                     {menu}
                     
             </div>
-            <div className='row'> 
-               {selectedDish ? <Card>
-                <CardImg width="100%" src={selectedDish.image} alt={selectedDish.name} />
-                <CardBody>
-                    <CardTitle>{selectedDish.name}</CardTitle>
-                    <CardText>{selectedDish.description}</CardText>
-                </CardBody>
-            </Card> : <div></div>}
-            </div>
+            {
+                selectedDish ?<DishdetailComponent selectedDish={selectedDish}/>:<div></div>
+            }
+           
          </div>
         </>
     )
