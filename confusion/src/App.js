@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import {Navbar, NavbarBrand} from 'reactstrap';
-
+import data from "../src/data/dish.json"
 // components
-import Menu from './components/MenuComponent';
+import MenuComponent from './components/MenuComponent';
 function App() {
+  const dishes = data;
   return (
     <div className="App">
       <Navbar dark color='primary'>
@@ -14,7 +15,7 @@ function App() {
           </NavbarBrand>
         </div>
         </Navbar>
-        <Menu />
+        <MenuComponent dishes={dishes} data={data}/>
     </div>
   );
 }
